@@ -10,6 +10,8 @@ We simulate large quantum circuits with QTensor [4], a tensor network simulator 
 
 Additionally, we are going to run our hybrid quantum-classical model on the provided quantum hardware to see the performance differences between the simulation and the physical machine. Our aim is to run the model on the backends with different modalities: Trapped Ion from IonQ and Superconducting qubits from IBM. The purpose of this comparison is to benchmark hardware against a simulation to see the effects of noise and corresponding error correction and to build on the 2017 comparison between these quantum architectures[6]. 
 
+Our project will be building on (top of the code)[https://github.com/jakesnell/prototypical-networks] used for the "Prototypical networks for few-shot learning." by Snell et al. 
+
 <p align="left"><img src="Assets/img1.png"/width=500></p>
 <p align="left"><img src="Assets/img2.png"/width=500></p>
 
