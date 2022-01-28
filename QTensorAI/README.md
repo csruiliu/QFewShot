@@ -6,7 +6,7 @@ Install QTensor first following the repository https://github.com/danlkv/QTensor
 ```bash
 git clone --recurse-submodules https://github.com/DaniloZZZ/QTensor
 ```
-Cloning with `--recurse-submodules` is important for installing the submodule `qtree`. Further, the `master` branch works well for installation, but you can then switch to other branches to see new features. This is not necessary for just using our QTensorAI library. Then, install `qtree`:
+Cloning with `--recurse-submodules` is important for installing the submodule `qtree`. Further, the `dev` branch works well for installation, but you can then switch to other branches to see new features. This is not necessary for just using our QTensorAI library. Then, install `qtree`:
 ```bash
 cd QTensor
 cd qtree

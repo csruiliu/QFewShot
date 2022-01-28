@@ -1,10 +1,14 @@
 import torch
-from qtensor_ai import QConv1D, QNN, TamakiOptimizer
+from qtensor_ai import QConv1D, QNN, InnerProduct, TamakiOptimizer
 import time
 
 in_channels =  1
 out_channels = 1
-kernel_size = 32
+kernel_size = 5
+n_batch = 25
+n_qubits = 5
+n_layers = 2
+sequence_length = kernel_size + 100
 
 device = 'cpu'
 if torch.cuda.is_available():
@@ -13,15 +17,20 @@ print(device)
 
 # Defining quantum neural network, quantum convolutioinal layer, and classical convolutional layer
 optimizer=TamakiOptimizer(wait_time=5) # If you do not want to use this, remove the optimizer keyword below. wait_time=5 is default
+
 qconv = QConv1D(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size, variational_layers=3, optimizer=optimizer).to(device)
 qnn = QNN(kernel_size, out_channels).to(device)
+innerproduct = InnerProduct(n_qubits=n_qubits, n_layers=n_layers, optimizer=optimizer).to(device)
 conv = torch.nn.Conv1d(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size).to(device)
 
-
-n_batch = 25
-sequence_length = kernel_size + 100
-
 torch.manual_seed(0)
+
+params1 = torch.ones(n_batch, n_qubits, n_layers)
+params2 = torch.ones(n_batch, n_qubits, n_layers)
+start = time.time()
+y = innerproduct(params1, params2)
+stop = time.time()
+print(y, ' , time for innerproduct ', stop-start)
 
 # Testing QNN
 x = torch.rand(n_batch*1, kernel_size, requires_grad=True).to(device)
