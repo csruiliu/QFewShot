@@ -144,8 +144,7 @@ def train(model, config, train_data, valid_data, logger):
     best_epoch = config['best_epoch']
 
     # at the end of the training, output the best loss and the best acc
-    logger.info('Best loss: %.4f / Best Acc: %.2f%%'
-          % (best_epoch['loss'], (best_epoch['acc'] * 100)))
+    logger.info('Best loss: %.4f / Best Acc: %.2f%%' % (best_epoch['loss'], (best_epoch['acc'] * 100)))
 
     # save dict with info about the best epoch
     with open(os.path.join(config['results_dir'], 'best_epoch.pkl'), 'wb') as f:
@@ -203,10 +202,9 @@ def main():
     eval_query = args['eval.query'] if args['eval.query'] != 0 else train_query
     eval_episodes = args['eval.episodes']
 
-
     MINIIMAGENET_DATA_DIR = os.path.abspath(os.path.join(os.path.abspath('setup.py'), '../../data/miniImagenet/data'))
-    train_x, train_y = load_images(os.path.join(MINIIMAGENET_DATA_DIR,  'train.pkl'))
-    valid_x, valid_y = load_images(os.path.join(MINIIMAGENET_DATA_DIR,  'valid.pkl'))
+    train_x, train_y = load_images(os.path.join(MINIIMAGENET_DATA_DIR, 'train.pkl'))
+    valid_x, valid_y = load_images(os.path.join(MINIIMAGENET_DATA_DIR, 'valid.pkl'))
 
     results_dir = os.path.abspath(os.path.join(os.path.abspath('setup.py'), '../results'))
 
@@ -250,9 +248,10 @@ def main():
         'epoch_size': eval_episodes
     }
 
-    train_logger = create_logger(os.path.abspath(os.path.join(os.path.abspath('setup.py'), '../logs')), 'train.log')
+    train_eval_logger = create_logger(os.path.abspath(os.path.join(os.path.abspath('setup.py'), '../logs')),
+                                      'train_eval.log')
 
-    train(model, config, train_data, valid_data, train_logger)
+    train(model, config, train_data, valid_data, train_eval_logger)
 
 
 if __name__ == "__main__":

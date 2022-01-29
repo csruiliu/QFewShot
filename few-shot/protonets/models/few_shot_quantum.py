@@ -8,7 +8,10 @@ from torch.autograd import Variable
 import torch
 from torch import nn
 
-from qtensor_ai.ParallelQTensor import InnerProductCircuitComposer, ParallelQtreeSimulator, ParallelQtreeTensorNet, ParallelTorchBackend
+from qtensor_ai.ParallelQTensor import (InnerProductCircuitComposer,
+                                        ParallelQtreeSimulator,
+                                        ParallelQtreeTensorNet,
+                                        ParallelTorchBackend)
 from qtensor_ai.Quantum_Neural_Net import circuit_optimization
 from qtensor.optimisation.Optimizer import DefaultOptimizer, TamakiOptimizer
 
@@ -45,7 +48,11 @@ class Protonet(nn.Module):
         tn, _, _ = ParallelQtreeTensorNet.from_qtree_gates(self.com.static_circuit)
         
         '''peo is the tensor network contraction order'''
-        self.peo = circuit_optimization(self.n_qubits, self.n_layers, tn, TamakiOptimizer(wait_time=20), InnerProductCircuitComposer)
+        self.peo = circuit_optimization(self.n_qubits,
+                                        self.n_layers,
+                                        tn,
+                                        TamakiOptimizer(wait_time=20),
+                                        InnerProductCircuitComposer)
 
     # Added utility to evaluate quantum distance
     def quantum_dist(self, x, y):
