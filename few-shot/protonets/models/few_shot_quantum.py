@@ -16,12 +16,14 @@ from protonets.models import register_model
 
 from .utils import euclidean_dist
 
+
 class Flatten(nn.Module):
     def __init__(self):
         super(Flatten, self).__init__()
 
     def forward(self, x):
         return x.view(x.size(0), -1)
+
 
 class Protonet(nn.Module):
     def __init__(self, encoder):
@@ -52,6 +54,7 @@ class Protonet(nn.Module):
         n = x.size(0)
         m = y.size(0)
         d = x.size(1)
+<<<<<<< HEAD
         assert d == y.size(1)
         assert d == self.n_qubits * self.n_layers
 
@@ -60,8 +63,15 @@ class Protonet(nn.Module):
 
         self.com.expectation_circuit(x, y)
         dist = self.sim.simulate_batch(self.com.static_circuit, peo=self.peo)
+=======
+        assert d == self.n_qubits * self.n_layers
 
-        return dist.reshape(n, m) # util.euclidean returns this array shape as well
+        x = x.unsqueeze(1).expand(n, m, d).reshape(n*m, self.n_qubits, self.n_layers)
+        y = y.unsqueeze(0).expand(n, m, d).reshape(n*m, self.n_qubits, self.n_layers)
+        dist = self.innerproduct(x, y)  # dist: n*m
+>>>>>>> refs/remotes/origin/main
+
+        return dist.reshape(n, m)  # util.euclidean returns this array shape as well
 
     def loss(self, sample):
         xs = Variable(sample['xs']) # support
@@ -84,6 +94,7 @@ class Protonet(nn.Module):
         z = self.encoder.forward(x)
         z_dim = z.size(-1)
 
+<<<<<<< HEAD
         not_averaging = False
         if not_averaging:
             zs = z[:n_class*n_support] # zs: n_class*n_support X z_dim
@@ -96,6 +107,22 @@ class Protonet(nn.Module):
             dists = self.quantum_dist(zq, z_proto).abs()
 
         log_p_y = F.log_softmax(dists, dim=1).view(n_class, n_query, -1)
+=======
+        #z_proto = z[:n_class*n_support].view(n_class, n_support, z_dim).mean(1)
+        #zq = z[n_class*n_support:]
+
+        #dists = euclidean_dist(zq, z_proto)
+
+        zs = z[:n_class*n_support] # zs: n_class*n_support X z_dim
+        zq = z[n_class*n_support:] # zq: n_class*n_query X z_dim
+        
+        dists = self.quantum_dist(zq, zs) # dists: N X M, N=n_class*n_query, M=n_class*n_support
+
+        dists = dists.reshape(n_class*n_query, n_class, n_support).mean(2) # dists: n_class*n_query X n_class
+
+        log_p_y = F.log_softmax(-dists, dim=1).view(n_class, n_query, -1)
+
+>>>>>>> refs/remotes/origin/main
         loss_val = -log_p_y.gather(2, target_inds).squeeze().view(-1).mean()
         _, y_hat = log_p_y.max(2)
         acc_val = torch.eq(y_hat, target_inds.squeeze()).float().mean()
@@ -104,6 +131,7 @@ class Protonet(nn.Module):
             'loss': loss_val.item(),
             'acc': acc_val.item()
         }
+
 
 @register_model('protonet_conv')
 def load_protonet_conv(**kwargs):

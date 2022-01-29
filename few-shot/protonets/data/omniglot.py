@@ -1,40 +1,39 @@
 import os
-import sys
 import glob
-
 from functools import partial
-
 import numpy as np
 from PIL import Image
-
 import torch
-from torchvision.transforms import ToTensor
 
 from torchnet.dataset import ListDataset, TransformDataset
 from torchnet.transform import compose
 
-import protonets
 from protonets.data.base import convert_dict, CudaTransform, EpisodicBatchSampler, SequentialBatchSampler
 
 # OMNIGLOT_DATA_DIR  = os.path.join(os.path.dirname(__file__), '../../data/omniglot')
 OMNIGLOT_DATA_DIR = os.path.abspath(os.path.join(os.path.abspath('setup.py'), '../data/omniglot'))
 OMNIGLOT_CACHE = { }
 
+
 def load_image_path(key, out_field, d):
     d[out_field] = Image.open(d[key])
     return d
+
 
 def convert_tensor(key, d):
     d[key] = 1.0 - torch.from_numpy(np.array(d[key], np.float32, copy=False)).transpose(0, 1).contiguous().view(1, d[key].size[0], d[key].size[1])
     return d
 
+
 def rotate_image(key, rot, d):
     d[key] = d[key].rotate(rot)
     return d
 
+
 def scale_image(key, height, width, d):
     d[key] = d[key].resize((height, width))
     return d
+
 
 def load_class_images(d):
     if d['class'] not in OMNIGLOT_CACHE:
@@ -58,7 +57,8 @@ def load_class_images(d):
             OMNIGLOT_CACHE[d['class']] = sample['data']
             break # only need one sample because batch size equal to dataset length
 
-    return { 'class': d['class'], 'data': OMNIGLOT_CACHE[d['class']] }
+    return {'class': d['class'], 'data': OMNIGLOT_CACHE[d['class']]}
+
 
 def extract_episode(n_support, n_query, d):
     # data: N x C x H x W
@@ -80,10 +80,11 @@ def extract_episode(n_support, n_query, d):
         'xq': xq
     }
 
+
 def load(opt, splits):
     split_dir = os.path.join(OMNIGLOT_DATA_DIR, 'splits', opt['data.split'])
 
-    ret = { }
+    ret = dict()
     for split in splits:
         if split in ['val', 'test'] and opt['data.test_way'] != 0:
             n_way = opt['data.test_way']

@@ -1,5 +1,6 @@
 from tqdm import tqdm
 
+
 class Engine(object):
     def __init__(self):
         hook_names = ['on_start', 'on_start_epoch', 'on_sample', 'on_forward',

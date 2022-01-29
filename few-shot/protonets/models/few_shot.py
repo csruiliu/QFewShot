@@ -8,12 +8,14 @@ from protonets.models import register_model
 
 from .utils import euclidean_dist
 
+
 class Flatten(nn.Module):
     def __init__(self):
         super(Flatten, self).__init__()
 
     def forward(self, x):
         return x.view(x.size(0), -1)
+
 
 class Protonet(nn.Module):
     def __init__(self, encoder):
@@ -58,6 +60,7 @@ class Protonet(nn.Module):
             'loss': loss_val.item(),
             'acc': acc_val.item()
         }
+
 
 @register_model('protonet_conv')
 def load_protonet_conv(**kwargs):
