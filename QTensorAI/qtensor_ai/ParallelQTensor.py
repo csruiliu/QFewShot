@@ -717,6 +717,7 @@ class InnerProductCircuitComposer(ParallelTorchQkernelComposer):
 
     def expectation_circuit(self, params1, params2):
         new_circuit = self.updated_expectation_circuit(params1, params2)
+        print(new_circuit)
         if len(self.static_circuit) != 0:
             for self_op, new_op in zip(self.static_circuit, new_circuit):
                 if isinstance(self_op, ParallelParametricGate):

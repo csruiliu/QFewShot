@@ -108,9 +108,10 @@ class InnerProduct(nn.Module):
         device = 'cpu'
         if torch.cuda.is_available():
             device = 'cuda'
-        init_params = torch.zeros(1, n_qubits, n_layers, requires_grad=False).to(device)
+        init_params1 = torch.randn(1, n_qubits, n_layers, requires_grad=False).to(device)
+        init_params2 = torch.randn(1, n_qubits, n_layers, requires_grad=False).to(device)
         self.com = InnerProductCircuitComposer(n_qubits)
-        self.com.expectation_circuit(init_params, init_params)
+        self.com.expectation_circuit(init_params1, init_params2)
         tn, measurement_circ, measurement_op = ParallelQtreeTensorNet.from_qtree_gates(self.com.static_circuit)
         
         '''peo is the tensor network contraction order'''
@@ -118,7 +119,7 @@ class InnerProduct(nn.Module):
 
     def forward(self, params1, params2):
         self.com.expectation_circuit(params1, params2)
-        out = torch.real(self.sim.simulate_batch(self.com.static_circuit, peo=self.peo)) # (out_features*n_batch)
+        out = self.sim.simulate_batch(self.com.static_circuit, peo=self.peo) # (out_features*n_batch)
         return out
 
 # Function for returning the contraction order. Searching if previously saved contraction orders exist.
