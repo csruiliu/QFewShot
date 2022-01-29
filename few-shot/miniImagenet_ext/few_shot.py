@@ -80,8 +80,7 @@ class ProtoNet(nn.Module):
         acc_val = torch.eq(y_hat, target_inds.squeeze()).float().mean()
 
         # return output: loss, acc and predicted value
-        return loss_val, {
-            'loss': loss_val.item(), 'acc': acc_val.item(), 'y_hat': y_hat}
+        return loss_val, {'loss': loss_val.item(), 'acc': acc_val.item(), 'y_hat': y_hat}
 
 
 # function to load the model structure
@@ -101,6 +100,7 @@ def load_protonet(x_dim, hid_dim, z_dim):
         conv_block(x_dim[0], hid_dim),
         conv_block(hid_dim, hid_dim),
         conv_block(hid_dim, hid_dim),
-        conv_block(hid_dim, z_dim), Flatten())
+        conv_block(hid_dim, z_dim),
+        Flatten())
 
     return ProtoNet(encoder)
