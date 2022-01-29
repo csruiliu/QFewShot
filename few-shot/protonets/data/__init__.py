@@ -1,1 +1,1 @@
-from . import omniglot, miniImagenet
+from . import omniglot
