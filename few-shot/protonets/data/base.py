@@ -1,7 +1,9 @@
 import torch
 
+
 def convert_dict(k, v):
-    return { k: v }
+    return {k: v}
+
 
 class CudaTransform(object):
     def __init__(self):
@@ -14,6 +16,7 @@ class CudaTransform(object):
 
         return data
 
+
 class SequentialBatchSampler(object):
     def __init__(self, n_classes):
         self.n_classes = n_classes
@@ -24,6 +27,7 @@ class SequentialBatchSampler(object):
     def __iter__(self):
         for i in range(self.n_classes):
             yield torch.LongTensor([i])
+
 
 class EpisodicBatchSampler(object):
     def __init__(self, n_classes, n_way, n_episodes):
