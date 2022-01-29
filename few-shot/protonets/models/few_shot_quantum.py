@@ -11,12 +11,14 @@ from protonets.models import register_model
 
 from .utils import euclidean_dist
 
+
 class Flatten(nn.Module):
     def __init__(self):
         super(Flatten, self).__init__()
 
     def forward(self, x):
         return x.view(x.size(0), -1)
+
 
 class Protonet(nn.Module):
     def __init__(self, encoder):
@@ -33,13 +35,13 @@ class Protonet(nn.Module):
         n = x.size(0)
         m = y.size(0)
         d = x.size(1)
-        assert d == y.size(1)
+        assert d == self.n_qubits * self.n_layers
 
-        x = x.unsqueeze(1).expand(n, m, d).reshape(n*m, d)
-        y = y.unsqueeze(0).expand(n, m, d).reshape(n*m, d)
-        dist = self.innerproduct(x, y) # dist: n*m
+        x = x.unsqueeze(1).expand(n, m, d).reshape(n*m, self.n_qubits, self.n_layers)
+        y = y.unsqueeze(0).expand(n, m, d).reshape(n*m, self.n_qubits, self.n_layers)
+        dist = self.innerproduct(x, y)  # dist: n*m
 
-        return dist.reshape(n, m) # util.euclidean returns this array shape as well
+        return dist.reshape(n, m)  # util.euclidean returns this array shape as well
 
     def loss(self, sample):
         xs = Variable(sample['xs']) # support
@@ -71,6 +73,7 @@ class Protonet(nn.Module):
         zq = z[n_class*n_support:] # zq: n_class*n_query X z_dim
         
         dists = self.quantum_dist(zq, zs) # dists: N X M, N=n_class*n_query, M=n_class*n_support
+
         dists = dists.reshape(n_class*n_query, n_class, n_support).mean(2) # dists: n_class*n_query X n_class
 
         log_p_y = F.log_softmax(-dists, dim=1).view(n_class, n_query, -1)
@@ -84,6 +87,7 @@ class Protonet(nn.Module):
             'loss': loss_val.item(),
             'acc': acc_val.item()
         }
+
 
 @register_model('protonet_conv')
 def load_protonet_conv(**kwargs):
