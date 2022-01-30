@@ -40,6 +40,10 @@ Our project will be building on top of [the code used for the "Prototypical netw
 
 <img src="Assets/mlgif1.gif" width="800">
 
+ * We have constructed an end-to-end machine learning pipeline to train the few-shot models with various datasets and deploy them for serving real-world applications. The pipeline consists of four main stages: *Pre-processing, Training, Evaluation, and Prediction*. Pre-processing Real-world data is usually incomplete, inconsistent, and frequently contains inaccuracies. The stage of data preprocessing could overcome this issue by cleaning the dataset and transferring raw data into an computable format for training. 
+* 
+*Pre-processing* consists of various data operations such as feature extraction, feature selection, dimensionality reduction, dimensionality rotation, scaling and sampling. The product of our data pre-processing is the final dataset used for training the model and testing purposes.*The *models are trained* using different hyperparameter settings, metrics, and cross-validation techniques.  to *evaluate* the models’ performance, the pipeline will pull the models from the training data and push them into evaluation and test dataset for prediction. Specifically, the pipeline counts the number of wrong predictions on the evaluation test dataset to compute the model’s prediction accuracy.   Finally, we are going to deploy the *model for prediction*. The pipeline will store the best-performance model with its meta like model architecture and parameters. When the model is deployed in the real-world application, the pipeline will load the model and initialize all the parameters for fine-tuning and prediction.
+ 
 <a name="toc3"></a>
 ## QTensor/QTensorAI and integration with the Few-Shot Model
 
