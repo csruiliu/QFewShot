@@ -5,6 +5,8 @@
 
 This project was submitted for the iQuHACK 2022 challenge. 
 
+[Presentation](https://docs.google.com/presentation/d/1ONI05HIInwmjgN8L7saklVzwzyu8AXO08TnXpvODHs4/edit#slide=id.p)
+
 Humans learn new concepts with very little supervision – e.g. a child can generalize the concept of “giraffe” from a single picture in a book – yet our best deep learning systems need hundreds or thousands of examples. [^1] Few-shot classification is a task in which a classifier must be adapted to accommodate new classes not seen in training, given only a few examples of each of these classes. [2] In practice, few-shot learning is useful when training examples are hard to find (e.g., cases of a rare disease), or where the cost of labeling data is high.
 
 ### Table of Contents  
