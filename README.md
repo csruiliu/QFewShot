@@ -92,48 +92,6 @@ In order to decide whether a query represented by a feature vector belongs to on
 
  
 Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technical implementation of this section. 
- 
-```py
-# trial to build ansatz and do inner product 
-# the rotation array has Rz,Ry alternating for each qubit
-# arranged qubit by qubit so it as an array of arrays 
-# with inner array length of 2*repetitions and outer array of length n_qubits
-
-def qfl_constructor(rot_array):
-    n_qubits = len(rot_array)
-    repetitions = int(len(rot_array[0])/2)
-    circuit = QuantumCircuit(n_qubits,n_qubits)
-    # we will have two angles per repetition per qubit
-    for j in np.arange(0,2*repetitions,2):
-        for i in range(n_qubits):
-            circuit.rz(phi=rot_array[i][j], qubit=i)    
-    
-        for i in range(n_qubits):
-            circuit.ry(theta=rot_array[i][j+1], qubit=i)
-
-        circuit.barrier()
-    
-        for i in np.arange(1,n_qubits,2):
-            circuit.cx(control_qubit=i-1, target_qubit=i)
-    
-        for i in np.arange(2,n_qubits,2):
-            circuit.cx(control_qubit=i-1, target_qubit=i)
-    
-
-    return circuit
-
-# this function spits out the combined circuit based on arrays specifying the rotation gates
-
-
-def qfl_combined_constructor(rot_array_first, rot_array_second):
-    circuit_first = qfl_constructor(rot_array_first)
-    circuit_second = qfl_constructor(rot_array_second)
-    inverse_circuit_second = circuit_second.inverse()
-    circuit_combined = circuit_first.compose(inverse_circuit_second)
-    # measure all the qubits at the end to get probability of getting 0000...00 
-    circuit_combined.measure_all()
-    return circuit_combined
-```
 
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
@@ -173,38 +131,7 @@ The miniImageNet dataset consists of 60,000 color images of size 84 × 84 divide
 
 ## Installation Guide ##
 
-### QTensor Installation ###
-
-First, you need to install QTensor from [source code](https://github.com/danlkv/qtensor).
-
-```bash
-# --recurse-submodules is important since qtensor has a submodule qtree  
-git clone --recurse-submodules https://github.com/DaniloZZZ/QTensor
-cd QTensor
-
-# using git branch -v -a to check all branchs
-# and switch to dev branch
-git switch dev
-# checkout the specific commit 
-git checkout dc53509
-
-cd qtree
-pip install .
-
-cd .. # back to QTensor folder
-pip install .
-```
-
-You can check if the `qtensor` and `qtree` are installed or not using `pip3 list`
-
-### QTensorAI Installation ###
-
-```bash
-cd QTensorAI
-python3 setup.py install
-```
-
-You can check if the `qtensor-ai` is installed or not using `pip3 list`
+For installation of [QTensorAI](./QTensorAI/README.md) and [few-shot](./few-shot/README.md), see the respective folders for their readme.
 
 <a name="toc8"></a>
  
