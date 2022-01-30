@@ -89,7 +89,8 @@ def load_protonet(x_dim, hid_dim, z_dim):
     def conv_block(layer_input, layer_output):
         conv = nn.Sequential(
             nn.Conv2d(layer_input, layer_output, 3, padding=1),
-            nn.BatchNorm2d(layer_output), nn.ReLU(),
+            nn.BatchNorm2d(layer_output),
+            nn.ReLU(),
             nn.MaxPool2d(2))
 
         return conv
