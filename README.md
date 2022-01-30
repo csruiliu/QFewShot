@@ -129,6 +129,6 @@ You can check if the `qtensor-ai` is installed or not using `pip3 list`
 [^5]: Boixo, Sergio, Sergei V. Isakov, Vadim N. Smelyanskiy, and Hartmut Neven. "Simulation of low-depth quantum circuits as complex undirected graphical models." arXiv preprint arXiv:1712.05384 (2017).
 [^6]: Linke, Norbert M., Dmitri Maslov, Martin Roetteler, Shantanu Debnath, Caroline Figgatt, Kevin A. Landsman, Kenneth Wright, and Christopher Monroe. "Experimental comparison of two quantum computing architectures." Proceedings of the National Academy of Sciences 114, no. 13 (2017): 3305-3310.
 [^7]: Koch, Gregory R.. “Siamese Neural Networks for One-Shot Image Recognition.” (2015).
-[^8]: (Jacob Biamonte and Ville Bergholm "Tensor Networks in a Nutshell")[https://arxiv.org/abs/1708.00006]
-[^9]: ("Tensor Network Quantum Simulator With Step-Dependent Parallelization
-")[https://arxiv.org/abs/2012.02430]
+[^8]: Jacob Biamonte and Ville Bergholm "Tensor Networks in a Nutshell" https://arxiv.org/abs/1708.00006
+[^9]: "Tensor Network Quantum Simulator With Step-Dependent Parallelization
+" https://arxiv.org/abs/2012.02430
