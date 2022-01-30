@@ -2,7 +2,7 @@
 
 This project was submitted for the iQuHACK 2022 challenge. 
 
-Humans learn new concepts with very little supervision – e.g. a child can generalize the concept of “giraffe” from a single picture in a book – yet our best deep learning systems need hundreds or thousands of examples. [1] Few-shot classification is a task in which a classifier must be adapted to accommodate new classes not seen in training, given only a few examples of each of these classes. [2] In practice, few-shot learning is useful when training examples are hard to find (e.g., cases of a rare disease), or where the cost of labeling data is high.
+Humans learn new concepts with very little supervision – e.g. a child can generalize the concept of “giraffe” from a single picture in a book – yet our best deep learning systems need hundreds or thousands of examples. [^1] Few-shot classification is a task in which a classifier must be adapted to accommodate new classes not seen in training, given only a few examples of each of these classes. [2] In practice, few-shot learning is useful when training examples are hard to find (e.g., cases of a rare disease), or where the cost of labeling data is high.
 
 ### Table of Contents  
 1. [Introduction to Machine Learning and Quantum Machine Learning](#toc1)
@@ -36,6 +36,17 @@ Our project will be building on top of [the code used for the "Prototypical netw
 
 <a name="toc3"></a>
 ## QTensor/QTensorAI and integration with the Few-Shot Model
+
+Quantum computers are hard to simulate classically, and this is a good thing in the long run,
+since we wouldn't need quantum computing otherwise. However we do need to simulate quantum computers
+classically to design and fine-tune quantum algorithms. This is where tensor networks [^8] come to help.
+ 
+This is an example tensor network:
+
+!()[Assets/tensornet.png]
+
+The simulation of quantum circuit is limited by memory required to simulate. Tensor networks allow to 
+take advantage of structure of a quantum circuit to reduce memory footprint of the simulation[^9]
 
 <a name="toc4"></a>
 ## Quantum Circuit for the calculation of Inner Product
@@ -86,10 +97,13 @@ You can check if the `qtensor-ai` is installed or not using `pip3 list`
 <a name="toc8"></a>
 
 ## References
-1. Vinyals, Oriol, Charles Blundell, Timothy Lillicrap, and Daan Wierstra. "Matching networks for one shot learning." Advances in neural information processing systems 29 (2016): 3630-3638.
+[^1]: Vinyals, Oriol, Charles Blundell, Timothy Lillicrap, and Daan Wierstra. "Matching networks for one shot learning." Advances in neural information processing systems 29 (2016): 3630-3638.
 2. Snell, Jake, Kevin Swersky, and Richard S. Zemel. "Prototypical networks for few-shot learning." arXiv preprint arXiv:1703.05175 (2017).
 3. Havlíček, Vojtěch, Antonio D. Córcoles, Kristan Temme, Aram W. Harrow, Abhinav Kandala, Jerry M. Chow, and Jay M. Gambetta. "Supervised learning with quantum-enhanced feature spaces." Nature 567, no. 7747 (2019): 209-212.
 4. Lykov, Danylo, Roman Schutski, Alexey Galda, Valerii Vinokur, and Yurii Alexeev. "Tensor network quantum simulator with step-dependent parallelization." arXiv preprint arXiv:2012.02430 (2020).
 5. Boixo, Sergio, Sergei V. Isakov, Vadim N. Smelyanskiy, and Hartmut Neven. "Simulation of low-depth quantum circuits as complex undirected graphical models." arXiv preprint arXiv:1712.05384 (2017).
 6. Linke, Norbert M., Dmitri Maslov, Martin Roetteler, Shantanu Debnath, Caroline Figgatt, Kevin A. Landsman, Kenneth Wright, and Christopher Monroe. "Experimental comparison of two quantum computing architectures." Proceedings of the National Academy of Sciences 114, no. 13 (2017): 3305-3310.
 7. Koch, Gregory R.. “Siamese Neural Networks for One-Shot Image Recognition.” (2015).
+[^8]: (Jacob Biamonte and Ville Bergholm "Tensor Networks in a Nutshell")[https://arxiv.org/abs/1708.00006]
+[^9]: ("Tensor Network Quantum Simulator With Step-Dependent Parallelization
+")[https://arxiv.org/abs/2012.02430]
