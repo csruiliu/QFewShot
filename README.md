@@ -97,7 +97,7 @@ Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technic
 
 Our project allows to extend the few-shot learning approach with the richness of quantum computing Hilbert space. One of the great applications of the few-shot learning is medical data, since the health data is very sensitive and hard to obtain on scale.
 
-We apply our algorithm to a dataset of upper-body thermal images correlated with COVID-19 symptoms and PCR test results[^10].
+We apply our algorithm to a dataset of upper-body thermal images correlated with COVID-19 symptoms and PCR test results[^11].
 The dataset contains infrared-camera videos of 252 people as well as description of each patient.
 
 This is an example picture from the dataset:
@@ -150,4 +150,5 @@ We had a lot of fun working on Machine Learning, Microsoft Azure and running cir
 [^8]: [Jacob Biamonte and Ville Bergholm "Tensor Networks in a Nutshell"](https://arxiv.org/abs/1708.00006)
 [^9]: "Tensor Network Quantum Simulator With Step-Dependent Parallelization
 " https://arxiv.org/abs/2012.02430
- [^10]: https://qiskit.org/textbook/ch-applications/vqe-molecules.html#simplevarform
+[^10]: https://qiskit.org/textbook/ch-applications/vqe-molecules.html#simplevarform
+[^10]: [Upper body thermal images and associated clinical data from a pilot cohort study of COVID-19](https://physionet.org/content/covid-19-thermal/1.1/)
