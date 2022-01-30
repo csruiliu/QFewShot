@@ -1,7 +1,7 @@
 # Fidelity-Based Quantum-Classical Few-Shot Learning
 
 <p align = center>
-<img src="Assets/circuit icon.png" width="500">
+<img src="Assets/circuit icon.png" width="400">
 
 This project was submitted for the iQuHACK 2022 challenge. 
 
