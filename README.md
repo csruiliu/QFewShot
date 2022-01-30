@@ -76,6 +76,50 @@ QTensorAI is a library that enables the utilization of the QTensor quantum simul
 ## Quantum Circuit for the calculation of Inner Product
 Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technical implementation of this section. 
 
+<p align = center>
+<img src="Assets/qiskit_circuit.png" width="800">
+
+```py
+# trial to build ansatz and do inner product 
+# the rotation array has Rz,Ry alternating for each qubit
+# arranged qubit by qubit so it as an array of arrays 
+# with inner array length of 2*repetitions and outer array of length n_qubits
+
+def qfl_constructor(rot_array):
+    n_qubits = len(rot_array)
+    repetitions = int(len(rot_array[0])/2)
+    circuit = QuantumCircuit(n_qubits,n_qubits)
+    # we will have two angles per repetition per qubit
+    for j in np.arange(0,2*repetitions,2):
+        for i in range(n_qubits):
+            circuit.rz(phi=rot_array[i][j], qubit=i)    
+    
+        for i in range(n_qubits):
+            circuit.ry(theta=rot_array[i][j+1], qubit=i)
+
+        circuit.barrier()
+    
+        for i in np.arange(1,n_qubits,2):
+            circuit.cx(control_qubit=i-1, target_qubit=i)
+    
+        for i in np.arange(2,n_qubits,2):
+            circuit.cx(control_qubit=i-1, target_qubit=i)
+    
+
+    return circuit
+
+# this function spits out the combined circuit based on arrays specifying the rotation gates
+
+
+def qfl_combined_constructor(rot_array_first, rot_array_second):
+    circuit_first = qfl_constructor(rot_array_first)
+    circuit_second = qfl_constructor(rot_array_second)
+    inverse_circuit_second = circuit_second.inverse()
+    circuit_combined = circuit_first.compose(inverse_circuit_second)
+    # measure all the qubits at the end to get probability of getting 0000...00 
+    circuit_combined.measure_all()
+    return circuit_combined
+```
 
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
