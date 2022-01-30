@@ -72,7 +72,7 @@ QTensorAI is a library that enables the utilization of the QTensor quantum simul
 
 | 50 qubit 8 variational layer prototypical networks | 32 qubit 4 variational layer temporal convolution |
 | :--------------: | :---------: 
-| <img src="Assets/50qubit8varproto.png" width="400"> | <img src="Assets/32qubit4vartemp.png" width="400">|
+| <img src="Assets/50qubit8varproto.png" width="200"> | <img src="Assets/32qubit4vartemp.png" width="200">|
 
 
 <a name="toc4"></a>
