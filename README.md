@@ -138,8 +138,6 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
 
-<<<<<<< HEAD
-
 Our project allows to extend the few-shot learning approach with the richness of quantum computing Hilbert space. One of the great applications of the few-shot learning is medical data, since the health data is very sensitive and hard to obtain on scale.
 
 We apply our algorithm to a dataset of upper-body thermal images correlated with COVID-19 symptoms and PCR test results[^10].
@@ -163,8 +161,6 @@ The description included various information including:
 
 We use this dataset to predict a set of symptoms by the thermal image. The source code for it is located [here](hew-shot/covid_prediction_ext)
 
-=======
->>>>>>> 668ae84235447a01762e30b936d3a96d87bb679a
 <a name="toc6"></a>
 ## Results
 Omniglot is a dataset of 1623 handwritten characters collected from 50 alphabets. There are 20 examples associated with each character, where each example is drawn by a different human subject. Our 60-way 5-shot model is trained testing accuracy is  sdfafsaf  percent, where random guessing gives 1/60*100%=1.7% accuracy. 
