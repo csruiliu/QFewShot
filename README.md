@@ -67,11 +67,6 @@ QTensorAI is a library that enables the utilization of the QTensor quantum simul
 
 <img src="Assets/qimg1.png" width="400">
 
-| 50 qubit 8 variational layer prototypical networks | 32 qubit 4 variational layer temporal convolution |
-| :--------------: | :---------: 
-| <img src="Assets/50qubit8varproto.png" width="400"> | <img src="Assets/32qubit4vartemp.png" width="400">|
-
-
 <a name="toc4"></a>
 ## Quantum Circuit for the calculation of Inner Product
 A circuit inspired by Linear Entanglement Ansatz [^10] with alternating layers of single qubit rotation and CNOT gates is employed to generate an Unitary Operator corresponding to a feature vector. The elements of the feature vector are encoded as rotation angles for Y and Z rotation gates. The Unitary generated from a given feature vector maps the all zero state to a state in the Hilbert space. 
