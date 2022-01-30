@@ -1,8 +1,5 @@
 # Fidelity-Based Quantum-Classical Few-Shot Learning
 
-<p align = center>
-<img src="Assets/circuit icon.png" width="500">
-
 This project was submitted for the iQuHACK 2022 challenge. 
 
 Humans learn new concepts with very little supervision – e.g. a child can generalize the concept of “giraffe” from a single picture in a book – yet our best deep learning systems need hundreds or thousands of examples. [^1] Few-shot classification is a task in which a classifier must be adapted to accommodate new classes not seen in training, given only a few examples of each of these classes. [2] In practice, few-shot learning is useful when training examples are hard to find (e.g., cases of a rare disease), or where the cost of labeling data is high.
@@ -77,7 +74,7 @@ QTensorAI is a library that enables the utilization of the QTensor quantum simul
 
 <a name="toc4"></a>
 ## Quantum Circuit for the calculation of Inner Product
-A circuit inspired by Linear Entanglement Ansatz [^10] with alternating layers of single qubit rotation and CNOT gates is employed to generate an Unitary Operator corresponding to a feature vector. The elements of the feature vector are encoded as rotation angles for Y and Z rotation gates. The Unitary generated from a given feature vector maps the all zero state to a state in the Hilbert space. 
+A circuit inspired by Linear Entanglement Ansatz [^10] with alternating layers of single qubit rotation and CNOT gates is employed to generate an Unitary Operator corresponding to a feature vector. The elements of the feature vector are encoded as rotation angles for Y and Z rotation gates. The Unitary generated from a given feature vector maps the all zero state to a state in the Hilbert space. The unitaries corresponding to the support classes are learned via training on a classical computer, making this a hybrid classical-quantum approach. 
 
 In order to decide whether a query represented by a feature vector belongs to one of the support classes, we compute the square of the inner product for the states corresponding to the query with those learned from the support class. Fortunately, at the cost of doubling the depth of the circuit this can be done by composing the circuit for generating the unitary for the query with the adjoint of the circuit generating the unitary for the support class. Finally all the qubits are measured and statistics for the overlap are collected.  The following figure illustrates this idea for 10 qubits with a feature vector of length 40.
 
