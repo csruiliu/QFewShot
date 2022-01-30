@@ -34,9 +34,8 @@ Our project will be building on top of [the code used for the "Prototypical netw
 
 <a name="toc2"></a>
 ## Building the Machine Learning Pipeline
-| |
-| :--------------: |
-| <img src="Assets/mlgif1.gif" width="800"> |
+
+<img src="Assets/mlgif1.gif" width="800">
 
 <a name="toc3"></a>
 ## QTensor/QTensorAI and integration with the Few-Shot Model
@@ -50,11 +49,11 @@ This is an example tensor network:
 <img src="Assets/tensornet.png" width="400">
 
 The simulation of quantum circuit is limited by memory required to simulate. Tensor networks allow to 
-take advantage of structure of a quantum circuit to reduce memory footprint of the simulation[^9]
+take advantage of structure of a quantum circuit to reduce memory footprint of the simulation[^9].
+
+In our code, we use a tensor network-based quantum simulator "QTensor". It is capable of simulating much larger circuits than state vector simulators. For example our simulation of 50 qubits would require over 4000 Terabytes of memory with statevector. Quantum operations are treated as tensors whose indices corresponds to their input and output qubits.
 
 Please view [this code](./QTensorAI) for the technical implementation of this section. 
-
-QTensor is a tensor network-based quantum simulator. Quantum operations are treated as tensors whose indices corresponds to their input and output qubits.
 
 | Diagonal Gates | Non-Diagonal Gates |
 | :--------------: | :---------: 
