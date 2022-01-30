@@ -74,11 +74,18 @@ QTensorAI is a library that enables the utilization of the QTensor quantum simul
 
 <a name="toc4"></a>
 ## Quantum Circuit for the calculation of Inner Product
-Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technical implementation of this section. 
+A circuit inspired by Linear Entanglement Ansatz [^10] with alternating layers of single qubit rotation and CNOT gates is employed to generate an Unitary Operator corresponding to a feature vector. The elements of the feature vector are encoded as rotation angles for Y and Z rotation gates. The Unitary generated from a given feature vector maps the all zero state to a state in the Hilbert space. 
+
+In order to decide whether a query represented by a feature vector belongs to one of the support classes, we compute the square of the inner product for the states corresponding to the query with those learned from the support class. Fortunately, at the cost of doubling the depth of the circuit this can be done by composing the circuit for generating the unitary for the query with the adjoint of the circuit generating the unitary for the support class. Finally all the qubits are measured and statistics for the overlap are collected.  The following figure illustrates this idea for 10 qubits with a feature vector of length 40.
+
+
 
 <p align = center>
 <img src="Assets/qiskit_circuit.png" width="800">
 
+ 
+Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technical implementation of this section. 
+ 
 ```py
 # trial to build ansatz and do inner product 
 # the rotation array has Rz,Ry alternating for each qubit
@@ -123,9 +130,6 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
 
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
-
-We use a dataset of upper-body thermal images of people.
-<img src="Assets/heatimage.png" width="400">
 
 <a name="toc6"></a>
 ## Results
@@ -180,3 +184,4 @@ You can check if the `qtensor-ai` is installed or not using `pip3 list`
 [^8]: [Jacob Biamonte and Ville Bergholm "Tensor Networks in a Nutshell"](https://arxiv.org/abs/1708.00006)
 [^9]: "Tensor Network Quantum Simulator With Step-Dependent Parallelization
 " https://arxiv.org/abs/2012.02430
+ [^10]: https://qiskit.org/textbook/ch-applications/vqe-molecules.html#simplevarform
