@@ -67,6 +67,11 @@ QTensorAI is a library that enables the utilization of the QTensor quantum simul
 
 <img src="Assets/qimg1.png" width="400">
 
+| 50 qubit 8 variational layer prototypical networks | 32 qubit 4 variational layer temporal convolution |
+| :--------------: | :---------: 
+| <img src="Assets/50qubit8varproto.png" width="400"> | <img src="Assets/32qubit4vartemp.png" width="400">|
+
+
 <a name="toc4"></a>
 ## Quantum Circuit for the calculation of Inner Product
 A circuit inspired by Linear Entanglement Ansatz [^10] with alternating layers of single qubit rotation and CNOT gates is employed to generate an Unitary Operator corresponding to a feature vector. The elements of the feature vector are encoded as rotation angles for Y and Z rotation gates. The Unitary generated from a given feature vector maps the all zero state to a state in the Hilbert space. 
@@ -78,8 +83,7 @@ In order to decide whether a query represented by a feature vector belongs to on
 <p align = center>
 <img src="Assets/qiskit_circuit.png" width="800">
 
- 
-Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technical implementation of this section. 
+This code snippet is used to generate the circuit to measure the overlap for the query and support vectors: 
  
 ```py
 # trial to build ansatz and do inner product 
@@ -122,6 +126,8 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
     circuit_combined.measure_all()
     return circuit_combined
 ```
+ 
+Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technical implementation of this section. 
 
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
@@ -129,15 +135,6 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
 <a name="toc6"></a>
 ## Results
 
-Omniglot [16] is a dataset of 1623 handwritten characters collected from 50 alphabets. There are 20 examples associated with each character, where each example is drawn by a different human subject. Our 60-way 5-shot model is trained testing accuracy is  sdfafsaf  percent, where random guessing gives 1/60*100%=1.7% accuracy. 
-The miniImageNet dataset consists of 60,000 color images of size 84 × 84 divided into 100 classes with 600 examples each. All classes are divided into 64 training, 16 validation, and 20 test classes. Our 5-way 5-shot model is trained with a 50-qubit 8 variational-layer circuit, resulting in a validation accuracy of 48.71%. Random guessing is expected to give a ⅕*100% = 20% accuracy.
-
- 
-| 50 qubit 8 variational layer prototypical networks | 32 qubit 4 variational layer temporal convolution |
-| :--------------: | :---------: 
-| <img src="Assets/50qubit8varproto.png" width="400"> | <img src="Assets/32qubit4vartemp.png" width="400">| 
- 
- 
 <a name="toc7"></a>
 
 ## Installation Guide ##
