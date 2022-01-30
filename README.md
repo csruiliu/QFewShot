@@ -124,8 +124,26 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
 
-We use a dataset of upper-body thermal images of people.
+Our project allows to extend the few-shot learning approach with the richness of quantum computing Hilbert space. One of the great applications of the few-shot learning is medical data, since the health data is very sensitive and hard to obtain on scale.
+
+We apply our algorithm to a dataset of upper-body thermal images correlated with COVID-19 symptoms and PCR test results[^10].
+The dataset contains infrared-camera videos of 252 people as well as description of each patient.
+
+This is an example picture from the dataset:
+
 <img src="Assets/heatimage.png" width="400">
+
+(The sun sticker is not included in the dataset)
+
+The description included various information including: 
+
+| Data section                       | Fields                                                                                                                                 |
+|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Participant information            | ID, Age, Gender, Weight, Height, Last menstruation (LMP)                                                                               |
+| SARS-CoV-2 Exposure                | House, Hospital/Clinics, School/Work, Other                                                                                            |
+| Vital signs                        | Temperature, Blood pressure, Cardiac rate, O2 Saturation, Respiratory rate                                                             |
+| Symptoms (< 24 hours)              | Fever, Cough, Throat pain, Diarrhea, Vomit, Smell loss, Taste loss, Shivers/chills, Headache, Myalgia, Generalized Arthralgias, Others |
+| PCR Diagnosis*                     | Result, (Estimated viral load)                                                                                                         |
 
 <a name="toc6"></a>
 ## Results
@@ -178,5 +196,5 @@ You can check if the `qtensor-ai` is installed or not using `pip3 list`
 [^6]: Linke, Norbert M., Dmitri Maslov, Martin Roetteler, Shantanu Debnath, Caroline Figgatt, Kevin A. Landsman, Kenneth Wright, and Christopher Monroe. "Experimental comparison of two quantum computing architectures." Proceedings of the National Academy of Sciences 114, no. 13 (2017): 3305-3310.
 [^7]: Koch, Gregory R.. “Siamese Neural Networks for One-Shot Image Recognition.” (2015).
 [^8]: [Jacob Biamonte and Ville Bergholm "Tensor Networks in a Nutshell"](https://arxiv.org/abs/1708.00006)
-[^9]: "Tensor Network Quantum Simulator With Step-Dependent Parallelization
-" https://arxiv.org/abs/2012.02430
+[^9]: ["Tensor Network Quantum Simulator With Step-Dependent Parallelization"](https://arxiv.org/abs/2012.02430)
+[^10]: ["Upper body thermal images and associated clinical data from a pilot cohort study of COVID-19"](https://physionet.org/content/covid-19-thermal/1.1/)
