@@ -72,7 +72,6 @@ Please view [this code](./QTensorAI) for the technical implementation of this se
 
 QTensorAI is a library that enables the utilization of the QTensor quantum simulator within PyTorch machine learning pipelines. The library offers a few circuit ansatz simulators wrapped as `nn.Module` classes, and other tools to allow users to construct their own ML-friendly circuit ansatzes. Further, QTensorAI changes the dynamic implementation of QTensor to static, making it friendly to CUDA Graph optimization, which eliminates CPU side kernel launch overhead and can lead to a significant speed-up. Combined with the added capability of batch parallelism, QTensorAI optimizes large machine learning tasks and removes significant overhead in quantum simulations.
 
-<img src="Assets/qimg1.png" width="400">
 
 | 50 qubit 8 variational layer prototypical networks | 32 qubit 4 variational layer temporal convolution |
 | :--------------: | :---------: 
