@@ -1,6 +1,22 @@
 # Fidelity-Based Quantum-Classical Few-Shot Learning
 
+This project was submitted for the iQuHACK 2022 challenge. 
+
 Humans learn new concepts with very little supervision – e.g. a child can generalize the concept of “giraffe” from a single picture in a book – yet our best deep learning systems need hundreds or thousands of examples. [1] Few-shot classification is a task in which a classifier must be adapted to accommodate new classes not seen in training, given only a few examples of each of these classes. [2] In practice, few-shot learning is useful when training examples are hard to find (e.g., cases of a rare disease), or where the cost of labeling data is high.
+
+### Table of Contents  
+1. [Introduction to Machine Learning and Quantum Machine Learning](#toc1)
+2. [Building the Machine Learning Pipeline](#toc2)
+3. [QTensor/QTensorAI and integration with the Few-Shot Model](#toc3)
+4. [Quantum Circuit for the calculation of Inner Product](#toc4)
+5. [Medical Dataset and Real World Application](#toc5)
+6. [Results](#toc6)
+7. [Installation Guide](#toc7)
+8. [References](#toc8)
+
+<a name="toc1"></a>
+
+## Introduction to Machine Learning and Quantum Machine Learning
 
 State-of-the-art models utilize sampled mini-batches called episodes during training, where each episode is designed to mimic the few-shot task by subsampling classes as well as data points. [2] The model, therefore, learns to extract embeddings for each sample that are useful for different few-shot tasks. The embeddings of the examples and the queries are compared by a distance metric, and the predicted class minimizes such distances.
 
@@ -15,7 +31,24 @@ Our project will be building on top of [the code used for the "Prototypical netw
 <p align="left"><img src="Assets/img1.png"/width=500></p>
 <p align="left"><img src="Assets/img2.png"/width=500></p>
 
-## Installation ##
+<a name="toc2"></a>
+## Building the Machine Learning Pipeline
+
+<a name="toc3"></a>
+## QTensor/QTensorAI and integration with the Few-Shot Model
+
+<a name="toc4"></a>
+## Quantum Circuit for the calculation of Inner Product
+
+<a name="toc5"></a>
+## Medical Dataset and Real World Application
+
+<a name="toc6"></a>
+## Results
+
+<a name="toc7"></a>
+
+## Installation Guide ##
 
 ### QTensor Installation ###
 
@@ -50,6 +83,7 @@ python3 setup.py install
 
 You can check if the `qtensor-ai` is installed or not using `pip3 list`
 
+<a name="toc8"></a>
 
 ## References
 1. Vinyals, Oriol, Charles Blundell, Timothy Lillicrap, and Daan Wierstra. "Matching networks for one shot learning." Advances in neural information processing systems 29 (2016): 3630-3638.
