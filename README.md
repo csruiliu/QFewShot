@@ -135,10 +135,7 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
 ## Results
 Omniglot is a dataset of 1623 handwritten characters collected from 50 alphabets. There are 20 examples associated with each character, where each example is drawn by a different human subject. Our 60-way 5-shot model is trained testing accuracy is  sdfafsaf  percent, where random guessing gives 1/60*100%=1.7% accuracy. 
 The miniImageNet dataset consists of 60,000 color images of size 84 × 84 divided into 100 classes with 600 examples each. All classes are divided into 64 training, 16 validation, and 20 test classes. Our 5-way 5-shot model is trained with a 50-qubit 8 variational-layer circuit, resulting in a validation accuracy of 48.71%. Random guessing is expected to give a ⅕*100% = 20% accuracy.
-<p align = center>
-<img src="_         Validation Accuracy for Omniglot 60-way 5-shot.png" width="800">
- <p align = center>
-<img src=" _         Validation Accuracy for MiniImageNet 5-way 5-shot" width="800">
+| <img src="Assets/_         Validation Accuracy for Omniglot 60-way 5-shot.png" width="400"> | <img src="Assets/ _         Validation Accuracy for MiniImageNet 5-way 5-shot" width="400">|
  
 <a name="toc7"></a>
 
