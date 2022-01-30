@@ -47,7 +47,7 @@ classically to design and fine-tune quantum algorithms. This is where tensor net
  
 This is an example tensor network:
 
-![](Assets/tensornet.png)
+<img src="Assets/tensornet.png" width="400">
 
 The simulation of quantum circuit is limited by memory required to simulate. Tensor networks allow to 
 take advantage of structure of a quantum circuit to reduce memory footprint of the simulation[^9]
