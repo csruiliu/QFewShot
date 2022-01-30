@@ -124,6 +124,9 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
 
+We use a dataset of upper-body thermal images of people.
+<img src="Assets/heatimage.png" width="400">
+
 <a name="toc6"></a>
 ## Results
 
