@@ -5,8 +5,6 @@
 
 This project was submitted for the iQuHACK 2022 challenge. 
 
-[Presentation](https://docs.google.com/presentation/d/1ONI05HIInwmjgN8L7saklVzwzyu8AXO08TnXpvODHs4/edit#slide=id.p)
-
 Humans learn new concepts with very little supervision – e.g. a child can generalize the concept of “giraffe” from a single picture in a book – yet our best deep learning systems need hundreds or thousands of examples. [^1] Few-shot classification is a task in which a classifier must be adapted to accommodate new classes not seen in training, given only a few examples of each of these classes. [2] In practice, few-shot learning is useful when training examples are hard to find (e.g., cases of a rare disease), or where the cost of labeling data is high.
 
 ### Table of Contents  
@@ -136,29 +134,6 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
 
-
-Our project allows to extend the few-shot learning approach with the richness of quantum computing Hilbert space. One of the great applications of the few-shot learning is medical data, since the health data is very sensitive and hard to obtain on scale.
-
-We apply our algorithm to a dataset of upper-body thermal images correlated with COVID-19 symptoms and PCR test results[^10].
-The dataset contains infrared-camera videos of 252 people as well as description of each patient.
-
-This is an example picture from the dataset:
-
-<img src="Assets/heatimage.png" width="400">
-
-(The sun sticker is not included in the dataset)
-
-The description included various information including:
-
-| Data section                       | Fields                                                                                                                                 |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Participant information            | ID, Age, Gender, Weight, Height, Last menstruation (LMP)                                                                               |
-| SARS-CoV-2 Exposure                | House, Hospital/Clinics, School/Work, Other                                                                                            |
-| Vital signs                        | Temperature, Blood pressure, Cardiac rate, O2 Saturation, Respiratory rate                                                             |
-| Symptoms (< 24 hours)              | Fever, Cough, Throat pain, Diarrhea, Vomit, Smell loss, Taste loss, Shivers/chills, Headache, Myalgia, Generalized Arthralgias, Others |
-| PCR Diagnosis*                     | Result, (Estimated viral load)                                                                                                         |
-
-
 <a name="toc6"></a>
 ## Results
 Omniglot is a dataset of 1623 handwritten characters collected from 50 alphabets. There are 20 examples associated with each character, where each example is drawn by a different human subject. Our 60-way 5-shot model is trained testing accuracy is  sdfafsaf  percent, where random guessing gives 1/60*100%=1.7% accuracy. 
@@ -205,6 +180,11 @@ python3 setup.py install
 You can check if the `qtensor-ai` is installed or not using `pip3 list`
 
 <a name="toc8"></a>
+ 
+ 
+ ### Personal Experience ###
+
+We had a lot of fun working on Machine Learning, Microsoft Azure and running circuits on the Ion Q computer. This was a wonderful learning oppurtunity and we thank the organizers for giving us the oppurtunity to participate in the Hackathon. 
 
 ## References
 [^1]: Vinyals, Oriol, Charles Blundell, Timothy Lillicrap, and Daan Wierstra. "Matching networks for one shot learning." Advances in neural information processing systems 29 (2016): 3630-3638.
