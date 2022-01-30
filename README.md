@@ -41,7 +41,6 @@ Our project will be building on top of [the code used for the "Prototypical netw
 <a name="toc3"></a>
 ## QTensor/QTensorAI and integration with the Few-Shot Model
 
-<<<<<<< HEAD
 Quantum computers are hard to simulate classically, and this is a good thing in the long run,
 since we wouldn't need quantum computing otherwise. However we do need to simulate quantum computers
 classically to design and fine-tune quantum algorithms. This is where tensor networks [^8] come to help.
@@ -52,7 +51,7 @@ This is an example tensor network:
 
 The simulation of quantum circuit is limited by memory required to simulate. Tensor networks allow to 
 take advantage of structure of a quantum circuit to reduce memory footprint of the simulation[^9]
-=======
+
 Please view [this code](./QTensorAI) for the technical implementation of this section. 
 
 QTensor is a tensor network-based quantum simulator. Quantum operations are treated as tensors whose indices corresponds to their input and output qubits.
@@ -71,7 +70,6 @@ QTensorAI is a library that enables the utilization of the QTensor quantum simul
 | :--------------: | :---------: 
 | <img src="Assets/50qubit8varproto.png" width="400"> | <img src="Assets/32qubit4vartemp.png" width="400">|
 
->>>>>>> 0ed5a82e39eefff2065a6896aeba6a8f0acd1c64
 
 <a name="toc4"></a>
 ## Quantum Circuit for the calculation of Inner Product
