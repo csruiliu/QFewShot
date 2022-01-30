@@ -1,5 +1,8 @@
 # Fidelity-Based Quantum-Classical Few-Shot Learning
 
+<p align = center>
+<img src="Assets/circuit icon.png" width="500">
+
 This project was submitted for the iQuHACK 2022 challenge. 
 
 Humans learn new concepts with very little supervision – e.g. a child can generalize the concept of “giraffe” from a single picture in a book – yet our best deep learning systems need hundreds or thousands of examples. [^1] Few-shot classification is a task in which a classifier must be adapted to accommodate new classes not seen in training, given only a few examples of each of these classes. [2] In practice, few-shot learning is useful when training examples are hard to find (e.g., cases of a rare disease), or where the cost of labeling data is high.
@@ -74,11 +77,18 @@ QTensorAI is a library that enables the utilization of the QTensor quantum simul
 
 <a name="toc4"></a>
 ## Quantum Circuit for the calculation of Inner Product
-Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technical implementation of this section. 
+A circuit inspired by Linear Entanglement Ansatz [^10] with alternating layers of single qubit rotation and CNOT gates is employed to generate an Unitary Operator corresponding to a feature vector. The elements of the feature vector are encoded as rotation angles for Y and Z rotation gates. The Unitary generated from a given feature vector maps the all zero state to a state in the Hilbert space. 
+
+In order to decide whether a query represented by a feature vector belongs to one of the support classes, we compute the square of the inner product for the states corresponding to the query with those learned from the support class. Fortunately, at the cost of doubling the depth of the circuit this can be done by composing the circuit for generating the unitary for the query with the adjoint of the circuit generating the unitary for the support class. Finally all the qubits are measured and statistics for the overlap are collected.  The following figure illustrates this idea for 10 qubits with a feature vector of length 40.
+
+
 
 <p align = center>
 <img src="Assets/qiskit_circuit.png" width="800">
 
+ 
+Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technical implementation of this section. 
+ 
 ```py
 # trial to build ansatz and do inner product 
 # the rotation array has Rz,Ry alternating for each qubit
@@ -145,9 +155,15 @@ The description included various information including:
 | Symptoms (< 24 hours)              | Fever, Cough, Throat pain, Diarrhea, Vomit, Smell loss, Taste loss, Shivers/chills, Headache, Myalgia, Generalized Arthralgias, Others |
 | PCR Diagnosis*                     | Result, (Estimated viral load)                                                                                                         |
 
+
 <a name="toc6"></a>
 ## Results
-
+Omniglot is a dataset of 1623 handwritten characters collected from 50 alphabets. There are 20 examples associated with each character, where each example is drawn by a different human subject. Our 60-way 5-shot model is trained testing accuracy is  sdfafsaf  percent, where random guessing gives 1/60*100%=1.7% accuracy. 
+The miniImageNet dataset consists of 60,000 color images of size 84 × 84 divided into 100 classes with 600 examples each. All classes are divided into 64 training, 16 validation, and 20 test classes. Our 5-way 5-shot model is trained with a 50-qubit 8 variational-layer circuit, resulting in a validation accuracy of 48.71%. Random guessing is expected to give a ⅕*100% = 20% accuracy.
+| | |
+| :--------------: | :---------: 
+| <img src="Assets/_         Validation Accuracy for Omniglot 60-way 5-shot.png" width="400"> | <img src="Assets/_         Validation Accuracy for MiniImageNet 5-way 5-shot.png" width="400">|
+ 
 <a name="toc7"></a>
 
 ## Installation Guide ##
@@ -196,5 +212,11 @@ You can check if the `qtensor-ai` is installed or not using `pip3 list`
 [^6]: Linke, Norbert M., Dmitri Maslov, Martin Roetteler, Shantanu Debnath, Caroline Figgatt, Kevin A. Landsman, Kenneth Wright, and Christopher Monroe. "Experimental comparison of two quantum computing architectures." Proceedings of the National Academy of Sciences 114, no. 13 (2017): 3305-3310.
 [^7]: Koch, Gregory R.. “Siamese Neural Networks for One-Shot Image Recognition.” (2015).
 [^8]: [Jacob Biamonte and Ville Bergholm "Tensor Networks in a Nutshell"](https://arxiv.org/abs/1708.00006)
+<<<<<<< HEAD
 [^9]: ["Tensor Network Quantum Simulator With Step-Dependent Parallelization"](https://arxiv.org/abs/2012.02430)
 [^10]: ["Upper body thermal images and associated clinical data from a pilot cohort study of COVID-19"](https://physionet.org/content/covid-19-thermal/1.1/)
+=======
+[^9]: "Tensor Network Quantum Simulator With Step-Dependent Parallelization
+" https://arxiv.org/abs/2012.02430
+ [^10]: https://qiskit.org/textbook/ch-applications/vqe-molecules.html#simplevarform
+>>>>>>> ea7c69c619212dabdba6c30eda7c664138b35cc0
