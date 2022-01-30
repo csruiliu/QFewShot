@@ -1,18 +1,18 @@
 # Quantum Prototypical Networks for Few-shot Learning
 
-This is a modification of original Prototypical Networks for Few-shot Learning.
+This is a modification of original [Prototypical Networks for Few-shot Learning](https://github.com/jakesnell/prototypical-networks).
 
-The following modifications have been added on top of the original model:
+The following modifications were made to the original model:
 
-+ We applied qtensor into the model and replace the Euclidean metric with our quantum inner product.
++ [QTensor](https://github.com/danlkv/QTensor/) was integrated into the original Few-Shot model and replaced the Euclidean metric with our quantum inner product.
 
-+ We added miniImagenet data for benchmarking
++ miniImagenet data was used for benchmarking against the original Omniglot dataset.
 
-+ We conducted an end-to-end training and serving pipeline for quantum few-shot learning
++ End-to-end training and serving pipeline was created for conducting Quantum Few-Shot Learning.
 
-+ We accelerated the training and serving process for quantum few-shot learning in light of CUDA graph
++ CUDA graph was used to accelerate the training and serving process for quantum few-shot learning.
 
-+ We imported medical dataset to the pipeline as an application showcase
++ For the expository reasons and practical application medical data has been added to the pipeline.
 
 ## Training a quantum prototypical network
 
