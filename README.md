@@ -116,7 +116,7 @@ The description included various information including:
 | Symptoms (< 24 hours)              | Fever, Cough, Throat pain, Diarrhea, Vomit, Smell loss, Taste loss, Shivers/chills, Headache, Myalgia, Generalized Arthralgias, Others |
 | PCR Diagnosis*                     | Result, (Estimated viral load)                                                                                                         |
 
-We use this dataset to predict a set of symptoms by the thermal image. The source code for it is located [here](hew-shot/covid_prediction_ext)
+We use this dataset to predict a set of symptoms by the thermal image. The source code for it is located [here](fhew-shot/covid_prediction_ext)
 
 <a name="toc6"></a>
 ## Results
