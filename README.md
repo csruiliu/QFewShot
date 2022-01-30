@@ -151,4 +151,4 @@ We had a lot of fun working on Machine Learning, Microsoft Azure and running cir
 [^9]: "Tensor Network Quantum Simulator With Step-Dependent Parallelization
 " https://arxiv.org/abs/2012.02430
 [^10]: https://qiskit.org/textbook/ch-applications/vqe-molecules.html#simplevarform
-[^10]: [Upper body thermal images and associated clinical data from a pilot cohort study of COVID-19](https://physionet.org/content/covid-19-thermal/1.1/)
+[^11]: [Upper body thermal images and associated clinical data from a pilot cohort study of COVID-19](https://physionet.org/content/covid-19-thermal/1.1/)
