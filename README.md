@@ -5,8 +5,6 @@
 
 This project was submitted for the iQuHACK 2022 challenge. 
 
-[Presentation](https://docs.google.com/presentation/d/1ONI05HIInwmjgN8L7saklVzwzyu8AXO08TnXpvODHs4/edit#slide=id.p)
-
 Humans learn new concepts with very little supervision – e.g. a child can generalize the concept of “giraffe” from a single picture in a book – yet our best deep learning systems need hundreds or thousands of examples. [^1] Few-shot classification is a task in which a classifier must be adapted to accommodate new classes not seen in training, given only a few examples of each of these classes. [2] In practice, few-shot learning is useful when training examples are hard to find (e.g., cases of a rare disease), or where the cost of labeling data is high.
 
 ### Table of Contents  
@@ -42,6 +40,10 @@ Our project will be building on top of [the code used for the "Prototypical netw
 
 <img src="Assets/mlgif1.gif" width="800">
 
+We have constructed an end-to-end machine learning pipeline to train the few-shot models with various datasets and deploy them for serving real-world applications. The pipeline consists of four main stages: *Pre-processing, Training, Evaluation, and Prediction*. Pre-processing Real-world data is usually incomplete, inconsistent, and frequently contains inaccuracies. The stage of data preprocessing could overcome this issue by cleaning the dataset and transferring raw data into an computable format for training. 
+ 
+The *Pre-processing* consists of various data operations such as feature extraction, feature selection, dimensionality reduction, dimensionality rotation, scaling and sampling. The product of our data pre-processing is the final dataset used for training the model and testing purposes. The *Models are Trained* using different hyperparameter settings, metrics, and cross-validation techniques. For our *Model Evaluation*, the pipeline will pull the models from the training data and push them into evaluation and test dataset for prediction. Specifically, the pipeline counts the number of wrong predictions on the evaluation test dataset to compute the model’s prediction accuracy.   Finally, we are going to deploy the *Model for Prediction*. The pipeline will store the best-performance model with its meta like model architecture and parameters. When the model is deployed in the real-world application, the pipeline will load the model and initialize all the parameters for fine-tuning and prediction.
+ 
 <a name="toc3"></a>
 ## QTensor/QTensorAI and integration with the Few-Shot Model
 
@@ -136,6 +138,7 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
 
+<<<<<<< HEAD
 
 Our project allows to extend the few-shot learning approach with the richness of quantum computing Hilbert space. One of the great applications of the few-shot learning is medical data, since the health data is very sensitive and hard to obtain on scale.
 
@@ -160,6 +163,8 @@ The description included various information including:
 
 We use this dataset to predict a set of symptoms by the thermal image. The source code for it is located [here](hew-shot/covid_prediction_ext)
 
+=======
+>>>>>>> 668ae84235447a01762e30b936d3a96d87bb679a
 <a name="toc6"></a>
 ## Results
 Omniglot is a dataset of 1623 handwritten characters collected from 50 alphabets. There are 20 examples associated with each character, where each example is drawn by a different human subject. Our 60-way 5-shot model is trained testing accuracy is  sdfafsaf  percent, where random guessing gives 1/60*100%=1.7% accuracy. 
@@ -206,6 +211,11 @@ python3 setup.py install
 You can check if the `qtensor-ai` is installed or not using `pip3 list`
 
 <a name="toc8"></a>
+ 
+ 
+ ### Personal Experience ###
+
+We had a lot of fun working on Machine Learning, Microsoft Azure and running circuits on the Ion Q computer. This was a wonderful learning oppurtunity and we thank the organizers for giving us the oppurtunity to participate in the Hackathon. 
 
 ## References
 [^1]: Vinyals, Oriol, Charles Blundell, Timothy Lillicrap, and Daan Wierstra. "Matching networks for one shot learning." Advances in neural information processing systems 29 (2016): 3630-3638.
