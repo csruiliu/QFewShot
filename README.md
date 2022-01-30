@@ -53,17 +53,19 @@ take advantage of structure of a quantum circuit to reduce memory footprint of t
 
 In our code, we use a tensor network-based quantum simulator "QTensor". It is capable of simulating much larger circuits than state vector simulators. For example our simulation of 50 qubits would require over 4000 Terabytes of memory with statevector. Quantum operations are treated as tensors whose indices corresponds to their input and output qubits.
 
-Please view [this code](./QTensorAI) for the technical implementation of this section. 
+This picture shows how quantum gates are represented as a undirected graph, which is then contracted optimally using tensor netwokr contraction algorithms:
 
 | Diagonal Gates | Non-Diagonal Gates |
 | :--------------: | :---------: 
 | <img src="Assets/diagonal_gates.png" width="400"> | <img src="Assets/non_diagonal_gates.png" width="400">|
 
-QTensorAI is a library that enables the utilization of the QTensor quantum simulator within PyTorch machine learning pipelines. The library offers a few circuit ansatz simulators wrapped as nn.Module classes, and other tools to allow users to construct their own ML-friendly circuit ansatzes. Further, QTensorAI changes the dynamic implementation of QTensor to static, making it friendly to CUDA Graph optimization, which eliminates CPU side kernel launch overhead and can lead to a significant speed-up. Combined with the added capability of batch parallelism, QTensorAI optimizes large machine learning tasks and removes significant overhead in quantum simulations.
+Note that if the gate is diagonal in the computational basis, it is possible to simplify the calculations.
 
-| |
-| :--------------: |
-| <img src="Assets/qimg1.png" width="400"> |
+Please view [this code](./QTensorAI) for the technical implementation of this section. 
+
+QTensorAI is a library that enables the utilization of the QTensor quantum simulator within PyTorch machine learning pipelines. The library offers a few circuit ansatz simulators wrapped as `nn.Module` classes, and other tools to allow users to construct their own ML-friendly circuit ansatzes. Further, QTensorAI changes the dynamic implementation of QTensor to static, making it friendly to CUDA Graph optimization, which eliminates CPU side kernel launch overhead and can lead to a significant speed-up. Combined with the added capability of batch parallelism, QTensorAI optimizes large machine learning tasks and removes significant overhead in quantum simulations.
+
+<img src="Assets/qimg1.png" width="400">
 
 | 50 qubit 8 variational layer prototypical networks | 32 qubit 4 variational layer temporal convolution |
 | :--------------: | :---------: 
