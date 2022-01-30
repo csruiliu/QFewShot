@@ -28,17 +28,42 @@ Additionally, we are going to run our hybrid quantum-classical model on the prov
 
 Our project will be building on top of [the code used for the "Prototypical networks for few-shot learning." by Snell et al.](https://github.com/jakesnell/prototypical-networks)
 
-<p align="left"><img src="Assets/img1.png"/width=500></p>
-<p align="left"><img src="Assets/img2.png"/width=500></p>
+| | |
+| :--------------: | :---------: 
+| <img src="Assets/img1.png" width="400"> | <img src="Assets/img2.png" width="400">
 
 <a name="toc2"></a>
 ## Building the Machine Learning Pipeline
+| |
+| :--------------: |
+| <img src="Assets/mlgif1.gif" width="800"> |
 
 <a name="toc3"></a>
 ## QTensor/QTensorAI and integration with the Few-Shot Model
 
+Please view [this code](./QTensorAI) for the technical implementation of this section. 
+
+QTensor is a tensor network-based quantum simulator. Quantum operations are treated as tensors whose indices corresponds to their input and output qubits.
+
+| Diagonal Gates | Non-Diagonal Gates |
+| :--------------: | :---------: 
+| <img src="Assets/diagonal_gates.png" width="400"> | <img src="Assets/non_diagonal_gates.png" width="400">|
+
+QTensorAI is a library that enables the utilization of the QTensor quantum simulator within PyTorch machine learning pipelines. The library offers a few circuit ansatz simulators wrapped as nn.Module classes, and other tools to allow users to construct their own ML-friendly circuit ansatzes. Further, QTensorAI changes the dynamic implementation of QTensor to static, making it friendly to CUDA Graph optimization, which eliminates CPU side kernel launch overhead and can lead to a significant speed-up. Combined with the added capability of batch parallelism, QTensorAI optimizes large machine learning tasks and removes significant overhead in quantum simulations.
+
+| |
+| :--------------: |
+| <img src="Assets/qimg1.png" width="400"> |
+
+| 50 qubit 8 variational layer prototypical networks | 32 qubit 4 variational layer temporal convolution |
+| :--------------: | :---------: 
+| <img src="Assets/50qubit8varproto.png" width="400"> | <img src="Assets/32qubit4vartemp.png" width="400">|
+
+
 <a name="toc4"></a>
 ## Quantum Circuit for the calculation of Inner Product
+Please view [this notebook](./azure_ionq/Running_Circuits.ipynb) for the technical implementation of this section. 
+
 
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
