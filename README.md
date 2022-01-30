@@ -120,7 +120,7 @@ We use this dataset to predict a set of symptoms by the thermal image. The sourc
 
 <a name="toc6"></a>
 ## Results
-Omniglot is a dataset of 1623 handwritten characters collected from 50 alphabets. There are 20 examples associated with each character, where each example is drawn by a different human subject. Our 60-way 5-shot model is trained testing accuracy is  sdfafsaf  percent, where random guessing gives 1/60*100%=1.7% accuracy. 
+Omniglot is a dataset of 1623 handwritten characters collected from 50 alphabets. There are 20 examples associated with each character, where each example is drawn by a different human subject. Our 60-way 5-shot model is trained testing accuracy is 98% percent, where random guessing gives 1/60*100%=1.7% accuracy. 
 The miniImageNet dataset consists of 60,000 color images of size 84 × 84 divided into 100 classes with 600 examples each. All classes are divided into 64 training, 16 validation, and 20 test classes. Our 5-way 5-shot model is trained with a 50-qubit 8 variational-layer circuit, resulting in a validation accuracy of 48.71%. Random guessing is expected to give a ⅕*100% = 20% accuracy.
 | | |
 | :--------------: | :---------: 
