@@ -4,7 +4,7 @@ This is a modification of original Prototypical Networks for Few-shot Learning.
 
 The following modifications have been added on top of the original model:
 
-+ We applied qtensor into the model and replace the ....
++ We applied qtensor into the model and replace the Euclidean metric with our quantum inner product.
 
 + We added miniImagenet data for benchmarking
 
@@ -71,7 +71,7 @@ For the Omniglot dataset, run `python scripts/train/few_shot/run_train.py --data
 For the miniImageNet dataset, run `python miniImageNet_ext/train_eval.py`. This will run training on GPU and place the results into `results`. For all the options, please use `--help`.
   
 
-### Test the mode
+### Test the model
 
 For the Omniglot dataset, run evaluation as: `python scripts/predict/few_shot/run_eval.py --model.model_path results/trainval/best_model.pt`. This will test the best model you have trained.
 
