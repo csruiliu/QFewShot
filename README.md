@@ -136,6 +136,29 @@ def qfl_combined_constructor(rot_array_first, rot_array_second):
 <a name="toc5"></a>
 ## Medical Dataset and Real World Application
 
+
+Our project allows to extend the few-shot learning approach with the richness of quantum computing Hilbert space. One of the great applications of the few-shot learning is medical data, since the health data is very sensitive and hard to obtain on scale.
+
+We apply our algorithm to a dataset of upper-body thermal images correlated with COVID-19 symptoms and PCR test results[^10].
+The dataset contains infrared-camera videos of 252 people as well as description of each patient.
+
+This is an example picture from the dataset:
+
+<img src="Assets/heatimage.png" width="400">
+
+(The sun sticker is not included in the dataset)
+
+The description included various information including:
+
+| Data section                       | Fields                                                                                                                                 |
+|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Participant information            | ID, Age, Gender, Weight, Height, Last menstruation (LMP)                                                                               |
+| SARS-CoV-2 Exposure                | House, Hospital/Clinics, School/Work, Other                                                                                            |
+| Vital signs                        | Temperature, Blood pressure, Cardiac rate, O2 Saturation, Respiratory rate                                                             |
+| Symptoms (< 24 hours)              | Fever, Cough, Throat pain, Diarrhea, Vomit, Smell loss, Taste loss, Shivers/chills, Headache, Myalgia, Generalized Arthralgias, Others |
+| PCR Diagnosis*                     | Result, (Estimated viral load)                                                                                                         |
+
+
 <a name="toc6"></a>
 ## Results
 Omniglot is a dataset of 1623 handwritten characters collected from 50 alphabets. There are 20 examples associated with each character, where each example is drawn by a different human subject. Our 60-way 5-shot model is trained testing accuracy is  sdfafsaf  percent, where random guessing gives 1/60*100%=1.7% accuracy. 
